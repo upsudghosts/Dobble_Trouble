@@ -13,7 +13,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import controller.ActionL;
+import controller.MenuL;
 
 public class Menu extends JFrame {
 	
@@ -29,7 +29,7 @@ public class Menu extends JFrame {
 		initUI();
 	}
 	
-	public void addAL(ActionL AL) {
+	public void addAL(MenuL AL) {
 		play.addActionListener(AL);
 		settings.addActionListener(AL);
 		help.addActionListener(AL);
@@ -50,7 +50,7 @@ public class Menu extends JFrame {
 		
 		play = new JButton("Play");
 		settings = new JButton("Settings");
-		help = new JButton("Help");
+		help = new JButton("Help"); 
 		quit = new JButton("Quit");
 		
 	

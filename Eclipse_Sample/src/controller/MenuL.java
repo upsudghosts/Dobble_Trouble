@@ -6,11 +6,11 @@ import java.awt.event.ActionListener;
 import view.DobbleTrouble;
 import view.Menu;
 
-public class ActionL implements ActionListener {
+public class MenuL implements ActionListener {
 	Menu m;
 	DobbleTrouble dt;
 	
-	public ActionL(Menu m, DobbleTrouble dt) {
+	public MenuL(Menu m, DobbleTrouble dt) {
 		this.m = m;
 		this.dt = dt;
 	}
