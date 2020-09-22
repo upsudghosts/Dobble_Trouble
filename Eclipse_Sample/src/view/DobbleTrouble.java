@@ -1,57 +1,38 @@
 package view;
 
 import java.awt.BorderLayout;
-import java.awt.Component;
+import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.Insets;
 
-import javax.swing.JButton;
+import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import controller.ActionL;
 
 public class DobbleTrouble extends JFrame {
+	
+	
 	public DobbleTrouble(String s) {
 		super(s);
 		initUI();
-		
 	}
 	
-	private void initUI() {
+	public void initUI() {
 		this.getContentPane().setLayout(new BorderLayout());
-		JPanel buttonPanel = new JPanel();
+		JPanel playerWindow = new JPanel();
+		JPanel deckWindow = new JPanel();
+		JPanel gameWindow = new JPanel();
 		
-		buttonPanel.setLayout(new GridBagLayout());
-		GridBagConstraints c = new GridBagConstraints();
+		gameWindow.setLayout(new BoxLayout(gameWindow, BoxLayout.PAGE_AXIS));
+		playerWindow.setBackground(Color.BLACK);
+		deckWindow.setBackground(Color.RED);
+		gameWindow.add(deckWindow);
+		gameWindow.add(playerWindow);
 		
-		//c.gridwidth = GridBagConstraints.REMAINDER;
-		//c.anchor = GridBagConstraints.CENTER;
-		c.fill = GridBagConstraints.HORIZONTAL;
-		c.insets = new Insets(10,0,0,0);
-		
-		JButton play = new JButton("Play");
-		play.addActionListener(e -> ActionL.playA());
-		JButton settings = new JButton("Settings");
-		settings.addActionListener(e -> ActionL.settingsA());
-		JButton help = new JButton("Help");
-		help.addActionListener(e -> ActionL.helpA());
-		JButton quit = new JButton("Quit");
-		quit.addActionListener(e -> ActionL.quitA());
-	
-		buttonPanel.add(play, c);
-		c.gridy = 1;
-		buttonPanel.add(settings, c);
-		c.gridy = 2;
-		buttonPanel.add(help, c);
-		c.gridy = 3;
-		buttonPanel.add(quit, c);
-		
-		this.getContentPane().add(buttonPanel, BorderLayout.CENTER);
-		this.setPreferredSize(new Dimension(1280, 720));
+		this.getContentPane().add(gameWindow);
+		this.setPreferredSize(new Dimension(960, 960));
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.pack();
+		
 	}
-	
 }
